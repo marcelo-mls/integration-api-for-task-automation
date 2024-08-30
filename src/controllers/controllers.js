@@ -2,7 +2,6 @@
 
 async function processFormAnswers(req, res) {
   try {
-    console.log(req.query);
     if(req.method === 'POST') {
       return res.status(201).json({ message: 'POST request successfully received', data: req.body});
     }
