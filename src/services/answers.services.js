@@ -36,14 +36,32 @@ function createTaskName(project, platform, taskType, businessUnit, mBox, timesta
   }
 }
 
-// function createOfferJSON() {
-//   try {
+// Função para criar o JSON da oferta com os dados recebidos
+function createOfferJSON(data) {
+  const { project, platform, taskType, businessUnit, mBox, timestamp } = data;
 
-//     return '';
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  if (!project || !platform || !taskType || !businessUnit || !timestamp) {
+    return { success: false, message: 'Missing required fields', offerJSON: null };
+  }
+
+  // Monta o JSON da oferta com os dados recebidos
+  const offerJSON = {
+    project,
+    platform,
+    taskType,
+    businessUnit,
+    mBox: mBox,
+    timestamp
+  };
+
+  // Retorna o JSON montado e uma mensagem de sucesso
+  return {
+    success: true,
+    message: 'Offer JSON created successfully',
+    offerJSON: offerJSON
+  };
+}
 
 // function createEmailContent() {
 //   try {
@@ -57,6 +75,6 @@ function createTaskName(project, platform, taskType, businessUnit, mBox, timesta
 
 module.exports = {
   createTaskName,
-  // createOfferJSON,
+  createOfferJSON,
   // createEmailContent,
 };
