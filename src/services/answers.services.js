@@ -51,7 +51,7 @@ function createOfferJSON(data) {
     platform,
     taskType,
     businessUnit,
-    mBox: mBox,
+    mBox,
     timestamp
   };
 

@@ -10,10 +10,21 @@ async function processFormAnswers(req, res) {
         return res.status(400).json({ message: 'Missing required fields' });
       }
 
+      // Chama a função createTaskName
+      const taskName = services.createTaskName(project, platform, taskType, businessUnit, mBox, timestamp);
+
+      // Chama a nova função createOfferJSON
+      const offerJSONResult = services.createOfferJSON({ project, platform, taskType, businessUnit, mBox, timestamp });
+
+      // Verifica se houve erro na criação do offerJSON
+      if (!offerJSONResult.success) {
+        return res.status(400).json({ message: offerJSONResult.message });
+      }
+
       const result = {
-        taskName: services.createTaskName(project, platform, taskType, businessUnit, mBox, timestamp),
-        offerJSON: '', // services.createOfferJSON()
-        htmlEmailContent: '' // services.createEmailContent()
+        taskName: taskName,
+        offerJSON: offerJSONResult.offerJSON, // Inclui offerJSON no resultado retornado
+        htmlEmailContent: '' // Pode adicionar mais dados se necessário
       };
 
       return res.status(200).json({ message: 'POST request successfully processed', result });
