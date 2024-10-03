@@ -5,26 +5,26 @@ async function processFormAnswers(req, res) {
     if(req.method === 'POST') {
       const { project, platform, taskType, businessUnit, mBox, timestamp } = req.body;
 
-      // Verifica se todas as chaves necessárias para criar o nome da task estão presentes
+      // Lida com o nome da solicitação
       if (!project || !platform || !taskType || !businessUnit || !timestamp) {
         return res.status(400).json({ message: 'Missing required fields' });
       }
 
-      // Chama a função createTaskName
       const taskName = services.createTaskName(project, platform, taskType, businessUnit, mBox, timestamp);
 
-      // Chama a nova função createOfferJSON
-      const offerJSONResult = services.createOfferJSON({ project, platform, taskType, businessUnit, mBox, timestamp });
+      // Lida com o JSON da oferta
+      let offerJSONResult = {};
+      if(taskType === 'Cadastro/Atualização de Oferta (CRO)') {
+        offerJSONResult = services.createOfferJSON(req.body);
 
-      // Verifica se houve erro na criação do offerJSON
-      if (!offerJSONResult.success) {
-        return res.status(400).json({ message: offerJSONResult.message });
+        if (!offerJSONResult.success) {
+          return res.status(400).json({ message: offerJSONResult.message });
+        }
       }
-
+   
       const result = {
         taskName: taskName,
         offerJSON: offerJSONResult.offerJSON, // Inclui offerJSON no resultado retornado
-        htmlEmailContent: '' // Pode adicionar mais dados se necessário
       };
 
       return res.status(200).json({ message: 'POST request successfully processed', result });

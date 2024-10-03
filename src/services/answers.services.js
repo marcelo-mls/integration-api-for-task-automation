@@ -1,3 +1,5 @@
+const { catalogJson } = require('../utils/catalogJSON');
+
 function createTaskName(project, platform, taskType, businessUnit, mBox, timestamp) {
   try {
     let shortTaskType = '';
@@ -46,35 +48,24 @@ function createOfferJSON(data) {
   }
 
   // Monta o JSON da oferta com os dados recebidos
-  const offerJSON = {
-    project,
-    platform,
-    taskType,
-    businessUnit,
-    mBox,
-    timestamp
-  };
+  const selectedJson = catalogJson[mBox];
+
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  // selectedJson.payload.nomeOferta = data.experienceNameA;
+  // selectedJson.payload.nomeOferta = data.experienceNameA;
+  // selectedJson.payload.nomeOferta = data.experienceNameA;
+  // selectedJson.payload.nomeOferta = data.experienceNameA;
+  // selectedJson.payload.nomeOferta = data.experienceNameA;
 
   // Retorna o JSON montado e uma mensagem de sucesso
   return {
     success: true,
     message: 'Offer JSON created successfully',
-    offerJSON: offerJSON
+    offerJSON: selectedJson
   };
 }
-
-// function createEmailContent() {
-//   try {
-
-//     return '';
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 
 module.exports = {
   createTaskName,
   createOfferJSON,
-  // createEmailContent,
 };
