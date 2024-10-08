@@ -30,7 +30,7 @@ const catalogJson = {
       acao: '',
       nomeOferta: '',
       imagemURL: '',
-      imagem: '', // Não alterar
+      imagem: '',
       temaOferta: 'azul', // Não alterar
       ordemExibicaoLogin: '2', // Não alterar
       mBox: 'dashResumo1Prod', // Não alterar
@@ -49,7 +49,7 @@ const catalogJson = {
       ordemExibicaoLogin: '1', // Não alterar
       mBox: 'homeResumo1Prod', // Não alterar
       espaco: 'homeResumo', // Não alterar
-      imagem: '' // Não alterar
+      imagem: ''
     }
   },
   dashCartaoProd: {
