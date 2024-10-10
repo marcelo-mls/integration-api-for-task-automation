@@ -33,7 +33,7 @@ function createDedicatedJSON (data, mBox) {
       selectedJson.payload.title = data.callToActionA;
     }
   } catch (error) {
-    console.error('Error in createDedicatedJSON:', error);
+    console.error(error);
   }
   return selectedJson; // Retorna o JSON personalizado
 }

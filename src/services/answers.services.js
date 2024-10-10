@@ -48,18 +48,30 @@ function createOfferJSON(data) {
     return { success: false, message: 'Missing required fields', offerJSON: null };
   }
 
-  // Monta o JSON da oferta com os dados recebidos
-  const selectedJson = catalogJson[mBox];
+  try {
+    // Verifica se a mBox existe no catalogJson
+    if (!catalogJson[mBox]) {
+      throw new Error(`Invalid mBox: ${mBox}`);
+    }
 
-  // criar o Json a partir da mbox selecionada. Então deve-se puxar as chaves necessárias de cada mbox.
+    // Chama a função para criar o JSON personalizado para a mBox
+    const selectedJson = createDedicatedJSON(data, mBox);
 
-  // Retorna o JSON montado e uma mensagem de sucesso
-  return {
-    success: true,
-    message: 'Offer JSON created successfully',
-    offerJSON: selectedJson
-  };
+    // Verifica se o selectedJson foi gerado corretamente
+    if (!selectedJson || !selectedJson.payload) {
+      throw new Error('Failed to generate the offer JSON');
+    }
+
+    // Retorna o JSON montado e uma mensagem de sucesso
+    return {
+      offerJSON: selectedJson
+    };
+
+  } catch (error) {
+    console.error(error);
+  }
 }
+
 
 module.exports = {
   createTaskName,
