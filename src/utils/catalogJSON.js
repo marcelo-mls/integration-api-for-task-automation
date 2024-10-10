@@ -1,4 +1,4 @@
-const catalogJson = {
+const catalogJson = { // trazer os outros mbox como dashResumo2
   travaTelasHomeProd: {
     payload:
       {
@@ -7,7 +7,7 @@ const catalogJson = {
         perfil: 'CARTAO', // Não alterar
         nomeOferta: '',
         backgroundColor: '',
-        imagemURL: null,
+        imagemURL: '',
         imagemFullscreen: null,
         textoAcessibilidade: '',
         corTitulo: '', 
