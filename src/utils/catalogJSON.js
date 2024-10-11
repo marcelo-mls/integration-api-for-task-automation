@@ -23,33 +23,97 @@ const catalogJson = { // trazer os outros mbox como dashResumo2
       }
   },
   dashResumo: {
-    payload: {
-      titulo: '',
-      subtitulo: '',
-      botao: '',
-      acao: '',
-      nomeOferta: '',
-      imagemURL: '',
-      imagem: '',
-      temaOferta: 'azul', // Não alterar
-      ordemExibicaoLogin: '2', // Não alterar
-      mBox: 'dashResumo1Prod', // Não alterar
-      espaco: 'dashResumo' // Não alterar
+    dash1: {
+      payload: {
+        titulo: '',
+        subtitulo: '',
+        botao: '',
+        acao: '',
+        nomeOferta: '',
+        imagemURL: '',
+        imagem: '',
+        temaOferta: 'azul', // Não alterar
+        ordemExibicaoLogin: '1', // Não alterar
+        mBox: 'dashResumo1Prod', // Não alterar
+        espaco: 'dashResumo' // Não alterar
+      }
+    },
+    dash2: {
+      payload: {
+        titulo: '',
+        subtitulo: '',
+        botao: '',
+        acao: '',
+        nomeOferta: '',
+        imagemURL: '',
+        imagem: '',
+        temaOferta: 'azul', // Não alterar
+        ordemExibicaoLogin: '2', // Não alterar
+        mBox: 'dashResumo2Prod', // Não alterar
+        espaco: 'dashResumo' // Não alterar
+      }
+    },
+    dash3: {
+      payload: {
+        titulo: '',
+        subtitulo: '',
+        botao: '',
+        acao: '',
+        nomeOferta: '',
+        imagemURL: '',
+        imagem: '',
+        temaOferta: 'azul', // Não alterar
+        ordemExibicaoLogin: '3', // Não alterar
+        mBox: 'dashResumo3Prod', // Não alterar
+        espaco: 'dashResumo' // Não alterar
+      }
     }
   },
   homeResumo: {
-    payload: {
-      titulo: '',
-      subtitulo: '',
-      botao: '',
-      acao: '',
-      nomeOferta: '',
-      imagemURL: '',
-      temaOferta: 'azul', // Não alterar
-      ordemExibicaoLogin: '1', // Não alterar
-      mBox: 'homeResumo1Prod', // Não alterar
-      espaco: 'homeResumo', // Não alterar
-      imagem: ''
+    home1: {
+      payload: {
+        titulo: '',
+        subtitulo: '',
+        botao: '',
+        acao: '',
+        nomeOferta: '',
+        imagemURL: '',
+        temaOferta: 'azul', // Não alterar
+        ordemExibicaoLogin: '1', // Não alterar
+        mBox: 'homeResumo1Prod', // Não alterar
+        espaco: 'homeResumo', // Não alterar
+        imagem: ''
+      }
+    },
+    home2: {
+      payload: {
+        titulo: '',
+        subtitulo: '',
+        botao: '',
+        acao: '',
+        nomeOferta: '',
+        imagemURL: '',
+        temaOferta: 'azul', // Não alterar
+        ordemExibicaoLogin: '2', // Não alterar
+        mBox: 'homeResumo2Prod', // Não alterar
+        espaco: 'homeResumo', // Não alterar
+        imagem: ''
+      }
+    },
+    home3: {
+      payload: {
+        titulo: '',
+        subtitulo: '',
+        botao: '',
+        acao: '',
+        nomeOferta: '',
+        imagemURL: '',
+        temaOferta: 'azul', // Não alterar
+        ordemExibicaoLogin: '3', // Não alterar
+        mBox: 'homeResumo3Prod', // Não alterar
+        espaco: 'homeResumo', // Não alterar
+        imagem: ''
+      }
     }
   },
   dashCartaoProd: {
