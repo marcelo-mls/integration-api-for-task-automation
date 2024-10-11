@@ -8,7 +8,7 @@ const catalogJson = { // trazer os outros mbox como dashResumo2
         nomeOferta: '',
         backgroundColor: '',
         imagemURL: '',
-        imagemFullscreen: null,
+        imagemFullscreen: null, // Não alterar
         textoAcessibilidade: '',
         corTitulo: '', 
         textoTitulo: '',
@@ -127,6 +127,32 @@ const catalogJson = { // trazer os outros mbox como dashResumo2
       ordemExibicaoLogin: '1', // Não alterar
       mBox: 'dashCartaoProd', // Não alterar
       espaco: 'dashCartao' // Não alterar
+    }
+  },
+  dashContaProd: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '1', // Não alterar
+      mBox: 'dashContaProd', // Não alterar
+      espaco: 'dashConta' // Não alterar
+    }
+  },
+  dashCreditoProd: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '1', // Não alterar
+      mBox: 'dashCreditoProd', // Não alterar
+      espaco: 'dashCredito' // Não alterar
     }
   },
   modalToast: {
