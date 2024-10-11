@@ -1,4 +1,4 @@
-const catalogJson = { // trazer os outros mbox como dashResumo2
+const catalogJson = { // trazer mbox appLogin PRD
   travaTelasHomeProd: {
     payload:
       {

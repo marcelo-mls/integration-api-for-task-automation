@@ -3,73 +3,106 @@ const { catalogJson } = require('../utils/catalogJSON');
 function createDedicatedJSON(data, mBox) {
   let selectedJson;
 
-  try {
+  try { // Verifica qual tipo de mBox foi recebido e inicializa o JSON correspondente.
     if (mBox.startsWith('travaTelasHomeProd')) {
-      // Seleciona o JSON de travaTelasHomeProd
-      selectedJson = catalogJson.travaTelasHomeProd;
-      selectedJson.payload.nomeOferta = data.experienceNameA;
-      selectedJson.payload.backgroundColor = data.backgroundColorA;
-      selectedJson.payload.imagemURL = data.figmaLinkA;
-      selectedJson.payload.corTitulo = data.colorTitleA;
-      selectedJson.payload.corValor = data.colorSubtitleA;
-      selectedJson.payload.acaoBotao = data.redirectionUrlA;
-      selectedJson.payload.temaBotao = data.colorCtaButtonA;
-      selectedJson.payload.corBotaoFechar = data.colorCloseButtonA;
-      selectedJson.payload.textoAcessibilidade = data.callToActionA;
+      selectedJson = initializeTravaTelas(data);
     } else if (mBox.startsWith('dashResumo')) {
-      if (mBox.includes('dash1')) {
-        selectedJson = catalogJson.dashResumo.dash1;
-      } else if (mBox.includes('dash2')) {
-        selectedJson = catalogJson.dashResumo.dash2;
-      } else if (mBox.includes('dash3')) {
-        selectedJson = catalogJson.dashResumo.dash3;
-      }
-      selectedJson.payload.nomeOferta = data.experienceNameA;
-      selectedJson.payload.imagemURL = data.figmaLinkA;
-      selectedJson.payload.acao = data.redirectionUrlA;
-      selectedJson.payload.titulo = data.callToActionA;
+      selectedJson = initializeDashResumo(mBox);
+      populateDashResumo(selectedJson, data);
     } else if (mBox.startsWith('homeResumo')) {
-      if (mBox.includes('home1')) {
-        selectedJson = catalogJson.homeResumo.home1;
-      } else if (mBox.includes('home2')) {
-        selectedJson = catalogJson.homeResumo.home2;
-      } else if (mBox.includes('home3')) {
-        selectedJson = catalogJson.homeResumo.home3;
-      }
-      selectedJson.payload.nomeOferta = data.experienceNameA;
-      selectedJson.payload.imagemURL = data.figmaLinkA;
-      selectedJson.payload.acao = data.redirectionUrlA;
-      selectedJson.payload.titulo = data.callToActionA;
+      selectedJson = initializeHomeResumo(mBox);
+      populateHomeResumo(selectedJson, data);
     } else if (mBox.startsWith('dashCartaoProd')) {
-      selectedJson = catalogJson.dashCartaoProd;
-      selectedJson.payload.nomeOferta = data.experienceNameA;
-      selectedJson.payload.acao = data.redirectionUrlA;
-      selectedJson.payload.titulo = data.callToActionA;
+      selectedJson = initializeDashCartao(data);
     } else if (mBox.startsWith('dashContaProd')) {
-      selectedJson = catalogJson.dashContaProd;
-      selectedJson.payload.nomeOferta = data.experienceNameA;
-      selectedJson.payload.acao = data.redirectionUrlA;
-      selectedJson.payload.titulo = data.callToActionA;
+      selectedJson = initializeDashConta(data);
     } else if (mBox.startsWith('dashCreditoProd')) {
-      selectedJson = catalogJson.dashCreditoProd;
-      selectedJson.payload.nomeOferta = data.experienceNameA;
-      selectedJson.payload.acao = data.redirectionUrlA;
-      selectedJson.payload.titulo = data.callToActionA;
+      selectedJson = initializeDashCredito(data);
     } else if (mBox.startsWith('modalToast')) {
-      if (mBox.includes('Cartao')) {
-        selectedJson = catalogJson.modalToastCartao;
-      } else if (mBox.includes('Conta')) {
-        selectedJson = catalogJson.modalToastConta;
-      }
-      selectedJson.payload.name = data.experienceNameA;
-      selectedJson.payload.deeplink = data.redirectionUrlA;
-      selectedJson.payload.title = data.callToActionA;
+      selectedJson = initializeModalToast(mBox);
+      populateModalToast(selectedJson, data);
     }
   } catch (error) {
     console.error(error);
   }
 
   return selectedJson; // Retorna o JSON personalizado
+}
+
+function initializeTravaTelas(data) { // Inicializa e popula o JSON de TravaTelas
+  const selectedJson = catalogJson.travaTelasHomeProd;
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  selectedJson.payload.backgroundColor = data.backgroundColorA;
+  selectedJson.payload.imagemURL = data.figmaLinkA;
+  selectedJson.payload.corTitulo = data.colorTitleA;
+  selectedJson.payload.corValor = data.colorSubtitleA;
+  selectedJson.payload.acaoBotao = data.redirectionUrlA;
+  selectedJson.payload.temaBotao = data.colorCtaButtonA;
+  selectedJson.payload.corBotaoFechar = data.colorCloseButtonA;
+  selectedJson.payload.textoAcessibilidade = data.callToActionA; // teste para receber todo o texto que será colocado na oferta
+
+  return selectedJson;
+}
+
+function initializeDashResumo(mBox) { // Inicializa o JSON e verifica qual será o dash
+  if (mBox.includes('dash1')) return catalogJson.dashResumo.dash1;
+  if (mBox.includes('dash2')) return catalogJson.dashResumo.dash2;
+  if (mBox.includes('dash3')) return catalogJson.dashResumo.dash3;
+}
+
+function populateDashResumo(selectedJson, data) { // Popula o JSON selecionado com os dados fornecidos
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  selectedJson.payload.imagemURL = data.figmaLinkA;
+  selectedJson.payload.acao = data.redirectionUrlA;
+  selectedJson.payload.titulo = data.callToActionA;
+}
+
+function initializeHomeResumo(mBox) { // Inicializa o JSON e verifica qual será o home
+  if (mBox.includes('home1')) return catalogJson.homeResumo.home1;
+  if (mBox.includes('home2')) return catalogJson.homeResumo.home2;
+  if (mBox.includes('home3')) return catalogJson.homeResumo.home3;
+}
+
+function populateHomeResumo(selectedJson, data) { // Popula o JSON selecionado com os dados fornecidos
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  selectedJson.payload.imagemURL = data.figmaLinkA;
+  selectedJson.payload.acao = data.redirectionUrlA;
+  selectedJson.payload.titulo = data.callToActionA;
+}
+
+function initializeDashCartao(data) { // Inicializa e popula o JSON de DashCartao
+  const selectedJson = catalogJson.dashCartaoProd;
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  selectedJson.payload.acao = data.redirectionUrlA;
+  selectedJson.payload.titulo = data.callToActionA;
+  return selectedJson;
+}
+
+function initializeDashConta(data) { // Inicializa e popula  o JSON de DashConta
+  const selectedJson = catalogJson.dashContaProd;
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  selectedJson.payload.acao = data.redirectionUrlA;
+  selectedJson.payload.titulo = data.callToActionA;
+  return selectedJson;
+}
+
+function initializeDashCredito(data) { // Inicializa e popula o JSON de DashCredito
+  const selectedJson = catalogJson.dashCreditoProd;
+  selectedJson.payload.nomeOferta = data.experienceNameA;
+  selectedJson.payload.acao = data.redirectionUrlA;
+  selectedJson.payload.titulo = data.callToActionA;
+  return selectedJson;
+}
+
+function initializeModalToast(mBox) { // Inicializa o JSON de modalToast
+  if (mBox.includes('Cartao')) return catalogJson.modalToast.Cartao;
+  if (mBox.includes('Conta')) return catalogJson.modalToast.Conta;
+}
+
+function populateModalToast(selectedJson, data) { // Popula o JSON selecionado com os dados fornecidos
+  selectedJson.payload.name = data.experienceNameA;
+  selectedJson.payload.deeplink = data.redirectionUrlA;
+  selectedJson.payload.title = data.callToActionA;
 }
 
 module.exports = {
