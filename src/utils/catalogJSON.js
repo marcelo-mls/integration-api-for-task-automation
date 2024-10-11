@@ -155,7 +155,7 @@ const catalogJson = { // trazer os outros mbox como dashResumo2
       espaco: 'dashCredito' // Não alterar
     }
   },
-  modalToast: {
+  modalToastCartao: {
     payload: {
       name: '',
       title: '',
@@ -164,6 +164,23 @@ const catalogJson = { // trazer os outros mbox como dashResumo2
       deeplink: '',
       theme: 'blue', // Não alterar
       typeName: 'cards', // Não alterar
+      espaco: 'banners', // Não alterar
+      priority: 5, // Não alterar
+      id: 196, // Não alterar
+      active: true, // Não alterar
+      hasImage: false, // Não alterar
+      hasWhiteList: true, // Não alterar
+    }
+  },
+  modalToastConta: {
+    payload: {
+      name: '',
+      title: '',
+      description: '',
+      button: '',
+      deeplink: '',
+      theme: 'blue', // Não alterar
+      typeName: 'account', // Não alterar
       espaco: 'banners', // Não alterar
       priority: 5, // Não alterar
       id: 196, // Não alterar
