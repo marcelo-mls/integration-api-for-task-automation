@@ -4,7 +4,7 @@ function createDedicatedJSON(data, mBox) {
   let selectedJson;
 
   try { // Verifica qual tipo de mBox foi recebido e inicializa o JSON correspondente.
-    if (mBox.startsWith('travaTelasHomeProd')) {
+    if (mBox.startsWith('travaTelas')) {
       selectedJson = initializeTravaTelas(data);
     } else if (mBox.startsWith('dashResumo')) {
       selectedJson = initializeDashResumo(mBox);
@@ -12,11 +12,11 @@ function createDedicatedJSON(data, mBox) {
     } else if (mBox.startsWith('homeResumo')) {
       selectedJson = initializeHomeResumo(mBox);
       populateHomeResumo(selectedJson, data);
-    } else if (mBox.startsWith('dashCartaoProd')) {
+    } else if (mBox.startsWith('dashCartao')) {
       selectedJson = initializeDashCartao(data);
-    } else if (mBox.startsWith('dashContaProd')) {
+    } else if (mBox.startsWith('dashConta')) {
       selectedJson = initializeDashConta(data);
-    } else if (mBox.startsWith('dashCreditoProd')) {
+    } else if (mBox.startsWith('dashCredito')) {
       selectedJson = initializeDashCredito(data);
     } else if (mBox.startsWith('modalToast')) {
       selectedJson = initializeModalToast(mBox);

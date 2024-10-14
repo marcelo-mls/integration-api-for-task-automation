@@ -48,12 +48,12 @@ function createOfferJSON(data) {
     return { success: false, message: 'Missing required fields', offerJSON: null };
   }
 
-  try {
-    // Verifica se a mBox existe no catalogJson
-    if (!catalogJson[mBox]) {
-      throw new Error(`Invalid mBox: ${mBox}`);
-    }
+  // Verifica se a mBox existe no catalogJson
+  if (!catalogJson[mBox]) {
+    return { success: false, message: `Invalid mBox: ${mBox}`, offerJSON: null };
+  }
 
+  try {
     // Chama a função para criar o JSON personalizado para a mBox
     const selectedJson = createDedicatedJSON(data, mBox);
 
@@ -64,14 +64,15 @@ function createOfferJSON(data) {
 
     // Retorna o JSON montado e uma mensagem de sucesso
     return {
+      success: true,
       offerJSON: selectedJson
     };
 
   } catch (error) {
     console.error(error);
+    return { success: false, message: 'Error generating offer JSON', offerJSON: null };
   }
 }
-
 
 module.exports = {
   createTaskName,
