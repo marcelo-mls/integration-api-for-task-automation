@@ -1,4 +1,4 @@
-const catalogJson = { // trazer mbox appLogin PRD
+const catalogJson = {
   travaTelasHomeProd: {
     payload:
       {
@@ -22,98 +22,94 @@ const catalogJson = { // trazer mbox appLogin PRD
         corBotaoFechar: ''
       }
   },
-  dashResumo: {
-    dash1: {
-      payload: {
-        titulo: '',
-        subtitulo: '',
-        botao: '',
-        acao: '',
-        nomeOferta: '',
-        imagemURL: '',
-        imagem: '',
-        temaOferta: 'azul', // Não alterar
-        ordemExibicaoLogin: '1', // Não alterar
-        mBox: 'dashResumo1Prod', // Não alterar
-        espaco: 'dashResumo' // Não alterar
-      }
-    },
-    dash2: {
-      payload: {
-        titulo: '',
-        subtitulo: '',
-        botao: '',
-        acao: '',
-        nomeOferta: '',
-        imagemURL: '',
-        imagem: '',
-        temaOferta: 'azul', // Não alterar
-        ordemExibicaoLogin: '2', // Não alterar
-        mBox: 'dashResumo2Prod', // Não alterar
-        espaco: 'dashResumo' // Não alterar
-      }
-    },
-    dash3: {
-      payload: {
-        titulo: '',
-        subtitulo: '',
-        botao: '',
-        acao: '',
-        nomeOferta: '',
-        imagemURL: '',
-        imagem: '',
-        temaOferta: 'azul', // Não alterar
-        ordemExibicaoLogin: '3', // Não alterar
-        mBox: 'dashResumo3Prod', // Não alterar
-        espaco: 'dashResumo' // Não alterar
-      }
+  dashResumo1: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      imagemURL: '',
+      imagem: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '1', // Não alterar
+      mBox: 'dashResumo1Prod', // Não alterar
+      espaco: 'dashResumo' // Não alterar
     }
   },
-  homeResumo: {
-    home1: {
-      payload: {
-        titulo: '',
-        subtitulo: '',
-        botao: '',
-        acao: '',
-        nomeOferta: '',
-        imagemURL: '',
-        temaOferta: 'azul', // Não alterar
-        ordemExibicaoLogin: '1', // Não alterar
-        mBox: 'homeResumo1Prod', // Não alterar
-        espaco: 'homeResumo', // Não alterar
-        imagem: ''
-      }
-    },
-    home2: {
-      payload: {
-        titulo: '',
-        subtitulo: '',
-        botao: '',
-        acao: '',
-        nomeOferta: '',
-        imagemURL: '',
-        temaOferta: 'azul', // Não alterar
-        ordemExibicaoLogin: '2', // Não alterar
-        mBox: 'homeResumo2Prod', // Não alterar
-        espaco: 'homeResumo', // Não alterar
-        imagem: ''
-      }
-    },
-    home3: {
-      payload: {
-        titulo: '',
-        subtitulo: '',
-        botao: '',
-        acao: '',
-        nomeOferta: '',
-        imagemURL: '',
-        temaOferta: 'azul', // Não alterar
-        ordemExibicaoLogin: '3', // Não alterar
-        mBox: 'homeResumo3Prod', // Não alterar
-        espaco: 'homeResumo', // Não alterar
-        imagem: ''
-      }
+  dashResumo2: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      imagemURL: '',
+      imagem: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '2', // Não alterar
+      mBox: 'dashResumo2Prod', // Não alterar
+      espaco: 'dashResumo' // Não alterar
+    }
+  },
+  dashResumo3: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      imagemURL: '',
+      imagem: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '3', // Não alterar
+      mBox: 'dashResumo3Prod', // Não alterar
+      espaco: 'dashResumo' // Não alterar
+    }
+  },
+  homeResumo1: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      imagemURL: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '1', // Não alterar
+      mBox: 'homeResumo1Prod', // Não alterar
+      espaco: 'homeResumo', // Não alterar
+      imagem: ''
+    }
+  },
+  homeResumo2: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      imagemURL: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '2', // Não alterar
+      mBox: 'homeResumo2Prod', // Não alterar
+      espaco: 'homeResumo', // Não alterar
+      imagem: ''
+    }
+  },
+  homeResumo3: {
+    payload: {
+      titulo: '',
+      subtitulo: '',
+      botao: '',
+      acao: '',
+      nomeOferta: '',
+      imagemURL: '',
+      temaOferta: 'azul', // Não alterar
+      ordemExibicaoLogin: '3', // Não alterar
+      mBox: 'homeResumo3Prod', // Não alterar
+      espaco: 'homeResumo', // Não alterar
+      imagem: ''
     }
   },
   dashCartaoProd: {
@@ -155,40 +151,38 @@ const catalogJson = { // trazer mbox appLogin PRD
       espaco: 'dashCredito' // Não alterar
     }
   },
-  modalToast: {
-    Cartao: {
-      payload: {
-        name: '',
-        title: '',
-        description: '',
-        button: '',
-        deeplink: '',
-        theme: 'blue', // Não alterar
-        typeName: 'cards', // Não alterar
-        espaco: 'banners', // Não alterar
-        priority: 5, // Não alterar
-        id: 196, // Não alterar
-        active: true, // Não alterar
-        hasImage: false, // Não alterar
-        hasWhiteList: true, // Não alterar
-      }
-    },
-    Conta: {
-      payload: {
-        name: '',
-        title: '',
-        description: '',
-        button: '',
-        deeplink: '',
-        theme: 'blue', // Não alterar
-        typeName: 'account', // Não alterar
-        espaco: 'banners', // Não alterar
-        priority: 5, // Não alterar
-        id: 196, // Não alterar
-        active: true, // Não alterar
-        hasImage: false, // Não alterar
-        hasWhiteList: true, // Não alterar
-      }
+  modalToastCartao: {
+    payload: {
+      name: '',
+      title: '',
+      description: '',
+      button: '',
+      deeplink: '',
+      theme: 'blue', // Não alterar
+      typeName: 'cards', // Não alterar
+      espaco: 'banners', // Não alterar
+      priority: 5, // Não alterar
+      id: 196, // Não alterar
+      active: true, // Não alterar
+      hasImage: false, // Não alterar
+      hasWhiteList: true, // Não alterar
+    }
+  },
+  modalToastConta: {
+    payload: {
+      name: '',
+      title: '',
+      description: '',
+      button: '',
+      deeplink: '',
+      theme: 'blue', // Não alterar
+      typeName: 'account', // Não alterar
+      espaco: 'banners', // Não alterar
+      priority: 5, // Não alterar
+      id: 196, // Não alterar
+      active: true, // Não alterar
+      hasImage: false, // Não alterar
+      hasWhiteList: true, // Não alterar
     }
   }
 };

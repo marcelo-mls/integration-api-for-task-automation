@@ -40,7 +40,7 @@ function createTaskName(project, platform, taskType, businessUnit, mBox, timesta
 }
 
 // Função para criar o JSON da oferta com os dados recebidos
-function createOfferJSON(data) {
+function createOfferJSON(data) { // alterar os acessos aos json para homeResumo1/homeResumo2...o código não está conseguindo verificar (e nem tem como) dash1,dash2
   const { project, platform, taskType, businessUnit, mBox, timestamp } = data;
 
   // Verifica se todos os campos obrigatórios estão preenchidos
