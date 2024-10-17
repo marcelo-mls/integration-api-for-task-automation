@@ -1,55 +1,56 @@
 const { catalogJson } = require('../utils/catalogJSON');
 
-function createDedicatedJSON(data, mBox) { // passar type XT - A ou B (ternário), valida e duplica no service
-  let selectedJson; // remover a variável e colocar um return em cada if
+function createDedicatedJSON(data, mBox) {
+  let selectedJson; // mantive a variável para não precisar aumentar o número de funções de inicialização
+  // const typeOf = taskType === ; // passar type XT - A ou B (ternário), valida e duplica no service
 
   try { // Verifica qual tipo de mBox foi recebido e inicializa o JSON correspondente.
-    if (mBox == 'travaTelasHomeProd') { 
-      selectedJson = initializeTravaTelas(data);
+    if (mBox === 'travaTelasHomeProd') { 
+      return selectedJson = initializeTravaTelas(data);
     }
 
-    if (mBox == 'dashResumo1Prod') {
-      selectedJson = initializeDashResumo(mBox);
+    if (mBox === 'dashResumo1Prod') {
+      selectedJson = initializeDashResumo(catalogJson.dashResumo1, data);
     }
 
-    if (mBox == 'dashResumo2Prod') {
-      selectedJson = initializeDashResumo(mBox);
+    if (mBox === 'dashResumo2Prod') {
+      selectedJson = initializeDashResumo(catalogJson.dashResumo2, data);
     }
 
-    if (mBox == 'dashResumo3Prod') {
-      selectedJson = initializeDashResumo(mBox);
+    if (mBox === 'dashResumo3Prod') {
+      selectedJson = initializeDashResumo(catalogJson.dashResumo3, data);
     }
 
-    if (mBox == 'homeResumo1Prod') {
-      selectedJson = initializeHomeResumo(mBox);
+    if (mBox === 'homeResumo1Prod') {
+      selectedJson = initializeHomeResumo(catalogJson.homeResumo1, data);
     }
 
-    if (mBox == 'homeResumo2Prod') {
-      selectedJson = initializeHomeResumo(mBox);
+    if (mBox === 'homeResumo2Prod') {
+      selectedJson = initializeHomeResumo(catalogJson.homeResumo2, data);
     }
 
-    if (mBox == 'homeResumo3Prod') {
-      selectedJson = initializeHomeResumo(mBox);
+    if (mBox === 'homeResumo3Prod') {
+      selectedJson = initializeHomeResumo(catalogJson.homeResumo3, data);
     }
 
-    if (mBox == 'dashCartaoProd') {
-      selectedJson = initializeDashCartao(data);
+    if (mBox === 'dashCartaoProd') {
+      return selectedJson = initializeDashCartao(data);
     }
   
-    if (mBox == 'dashContaProd') {
-      selectedJson = initializeDashConta(data);
+    if (mBox === 'dashContaProd') {
+      return selectedJson = initializeDashConta(data);
     }
   
-    if (mBox == 'dashCreditoProd') {
-      selectedJson = initializeDashCredito(data);
+    if (mBox === 'dashCreditoProd') {
+      return selectedJson = initializeDashCredito(data);
     }
 
-    if (mBox == 'modalToastCartao') {
-      selectedJson = initializeModalToast(mBox);
+    if (mBox === 'modalToastCartao') {
+      selectedJson = initializeModalToast(catalogJson.modalToastCartao, data);
     }
 
-    if (mBox == 'modalToastConta') {
-      selectedJson = initializeModalToast(mBox);
+    if (mBox === 'modalToastConta') {
+      selectedJson = initializeModalToast(catalogJson.modalToastConta, data);
     }
 
   } catch (error) {
@@ -71,7 +72,6 @@ function initializeTravaTelas(data) { // Inicializa e popula o JSON de TravaTela
   selectedJson.payload.temaBotao = data.colorCtaButtonA;
   selectedJson.payload.corBotaoFechar = data.colorCloseButtonA;
   // selectedJson.payload.textoAcessibilidade = data.callToActionA; // teste para receber todo o texto que será colocado na oferta
-
   return selectedJson;
 }
 
@@ -79,12 +79,14 @@ function initializeDashResumo(selectedJson, data) { // Popula o JSON selecionado
   selectedJson.payload.nomeOferta = data.experienceNameA;
   selectedJson.payload.acao = data.redirectionUrlA;
   selectedJson.payload.titulo = data.callToActionA;
+  return selectedJson;
 }
 
 function initializeHomeResumo(selectedJson, data) { // Popula o JSON selecionado com os dados fornecidos
   selectedJson.payload.nomeOferta = data.experienceNameA;
   selectedJson.payload.acao = data.redirectionUrlA;
   selectedJson.payload.titulo = data.callToActionA;
+  return selectedJson;
 }
 
 function initializeDashCartao(data) { // Inicializa e popula o JSON de DashCartao
@@ -115,6 +117,7 @@ function initializeModalToast(selectedJson, data) { // Popula o JSON selecionado
   selectedJson.payload.name = data.experienceNameA;
   selectedJson.payload.deeplink = data.redirectionUrlA;
   selectedJson.payload.title = data.callToActionA;
+  return selectedJson;
 }
 
 module.exports = {

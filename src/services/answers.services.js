@@ -70,7 +70,6 @@ function createOfferJSON(data) { // alterar os acessos aos json para homeResumo1
 
   } catch (error) {
     console.error(error);
-    return { success: false, message: 'Error generating offer JSON', offerJSON: null };
   }
 }
 
