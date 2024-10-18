@@ -22,8 +22,9 @@ const catalogJson = {
         corBotaoFechar: ''
       }
   },
-  dashResumo1: {
-    payload: {
+  dashResumo1Prod: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -37,8 +38,9 @@ const catalogJson = {
       espaco: 'dashResumo' // Não alterar
     }
   },
-  dashResumo2: {
-    payload: {
+  dashResumo2Prod: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -52,8 +54,9 @@ const catalogJson = {
       espaco: 'dashResumo' // Não alterar
     }
   },
-  dashResumo3: {
-    payload: {
+  dashResumo3Prod: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -67,8 +70,9 @@ const catalogJson = {
       espaco: 'dashResumo' // Não alterar
     }
   },
-  homeResumo1: {
-    payload: {
+  homeResumo1Prod: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -82,8 +86,9 @@ const catalogJson = {
       imagem: ''
     }
   },
-  homeResumo2: {
-    payload: {
+  homeResumo2Prod: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -97,8 +102,9 @@ const catalogJson = {
       imagem: ''
     }
   },
-  homeResumo3: {
-    payload: {
+  homeResumo3Prod: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -113,7 +119,8 @@ const catalogJson = {
     }
   },
   dashCartaoProd: {
-    payload: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -126,7 +133,8 @@ const catalogJson = {
     }
   },
   dashContaProd: {
-    payload: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -139,7 +147,8 @@ const catalogJson = {
     }
   },
   dashCreditoProd: {
-    payload: {
+    payload:
+    {
       titulo: '',
       subtitulo: '',
       botao: '',
@@ -151,8 +160,9 @@ const catalogJson = {
       espaco: 'dashCredito' // Não alterar
     }
   },
-  modalToastCartao: {
-    payload: {
+  modalToastCartaoProd: {
+    payload:
+    {
       name: '',
       title: '',
       description: '',
@@ -168,8 +178,9 @@ const catalogJson = {
       hasWhiteList: true, // Não alterar
     }
   },
-  modalToastConta: {
-    payload: {
+  modalToastContaProd: {
+    payload:
+    {
       name: '',
       title: '',
       description: '',
@@ -184,7 +195,7 @@ const catalogJson = {
       hasImage: false, // Não alterar
       hasWhiteList: true, // Não alterar
     }
-  }
+  },
 };
 
 module.exports = {

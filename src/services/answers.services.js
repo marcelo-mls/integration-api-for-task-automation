@@ -40,11 +40,11 @@ function createTaskName(project, platform, taskType, businessUnit, mBox, timesta
 }
 
 // Função para criar o JSON da oferta com os dados recebidos
-function createOfferJSON(data) { // alterar os acessos aos json para homeResumo1/homeResumo2...o código não está conseguindo verificar (e nem tem como) dash1,dash2
+function createOfferJSON(data) {
   const { project, platform, taskType, businessUnit, mBox, timestamp } = data;
 
-  // Verifica se todos os campos obrigatórios estão preenchidos
-  if (!project || !platform || !taskType || !businessUnit || !timestamp) {
+  // Verifica se todos os campos obrigatórios estão presentes
+  if (!project || !platform || !taskType || !businessUnit || !mBox || !timestamp) {
     return { success: false, message: 'Missing required fields', offerJSON: null };
   }
 
@@ -54,22 +54,20 @@ function createOfferJSON(data) { // alterar os acessos aos json para homeResumo1
   }
 
   try {
-    // Chama a função para criar o JSON personalizado para a mBox
-    const selectedJson = createDedicatedJSON(data, mBox);
+    // Chama a função para criar o JSON personalizado a partir de dinamicJSON
+    const generatedJson = createDedicatedJSON(data, mBox);
 
-    // Verifica se o selectedJson foi gerado corretamente
-    if (!selectedJson || !selectedJson.payload) {
-      throw new Error('Failed to generate the offer JSON');
+    // Verifica se o JSON foi gerado corretamente
+    if (!generatedJson || !generatedJson.payload) {
+      return { success: false, message: 'Failed to generate the offer JSON', offerJSON: null };
     }
 
-    // Retorna o JSON montado e uma mensagem de sucesso
-    return {
-      success: true,
-      offerJSON: selectedJson
-    };
+    // Retorna o JSON gerado e uma mensagem de sucesso
+    return { success: true, message: 'JSON generated successfully', offerJSON: generatedJson };
 
   } catch (error) {
-    console.error(error);
+    console.error('Error generating JSON:', error);
+    return { success: false, message: 'An error occurred while generating the JSON', offerJSON: null };
   }
 }
 
