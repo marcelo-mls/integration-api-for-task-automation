@@ -2,7 +2,6 @@ const { catalogJson } = require('../utils/catalogJSON');
 
 function createDedicatedJSON(data, mBox) {
   let selectedJson; // mantive a variável para não precisar aumentar o número de funções de inicialização
-  // const typeOf = taskType === ; // passar type XT - A ou B (ternário), valida e duplica no service
 
   try { // Verifica qual tipo de mBox foi recebido e inicializa o JSON correspondente.
     if (mBox === 'travaTelasHomeProd') { 
@@ -58,6 +57,8 @@ function createDedicatedJSON(data, mBox) {
 
   return selectedJson; // Retorna o JSON personalizado
 }
+
+const getTypeAB = (taskType) => taskType === 'AB' ? createDedicatedJSON() : null; // passar type AB (ternário), valida e duplica no service
 
 function initializeTravaTelas(data) { // Inicializa e popula o JSON de TravaTelas
   const selectedJson = catalogJson.travaTelasHomeProd;
@@ -163,5 +164,6 @@ function initializeModalToastConta(data) { // Popula o JSON selecionado com os d
 
 module.exports = {
   createDedicatedJSON,
+  getTypeAB,
 };
   

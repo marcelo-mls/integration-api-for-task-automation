@@ -1,5 +1,5 @@
 const { catalogJson } = require('../utils/catalogJSON');
-const { createDedicatedJSON } = require('../utils/dinamicJSON');
+const { createDedicatedJSON, getTypeAB } = require('../utils/dinamicJSON');
 
 function createTaskName(project, platform, taskType, businessUnit, mBox, timestamp) {
   try {
@@ -54,8 +54,8 @@ function createOfferJSON(data) {
   }
 
   try {
-    // Chama a função para criar o JSON personalizado a partir de dinamicJSON
-    const generatedJson = createDedicatedJSON(data, mBox);
+    // Usa getTypeAB para verificar se o taskType é 'AB' e, nesse caso, retorna o JSON dedicado
+    const generatedJson = getTypeAB(taskType) ? getTypeAB(taskType)(data, mBox) : createDedicatedJSON(data, mBox);
 
     // Verifica se o JSON foi gerado corretamente
     if (!generatedJson || !generatedJson.payload) {
@@ -66,8 +66,7 @@ function createOfferJSON(data) {
     return { success: true, message: 'JSON generated successfully', offerJSON: generatedJson };
 
   } catch (error) {
-    console.error('Error generating JSON:', error);
-    return { success: false, message: 'An error occurred while generating the JSON', offerJSON: null };
+    console.error(error);
   }
 }
 
