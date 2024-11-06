@@ -1,7 +1,7 @@
 const { catalogJson } = require('../utils/catalogJSON');
 const { createDedicatedJSON, getTypeAB } = require('../utils/dinamicJSON');
 
-function createTaskName(project, platform, taskType, businessUnit, mBox, timestamp) {
+/* function createTaskName(project, platform, taskType, businessUnit, mBox, timestamp) {
   try {
     let shortTaskType = '';
 
@@ -37,7 +37,7 @@ function createTaskName(project, platform, taskType, businessUnit, mBox, timesta
   } catch (error) {
     console.error(error);
   }
-}
+}*/
 
 // Função para criar o JSON da oferta com os dados recebidos
 function createOfferJSON(data) {
@@ -71,6 +71,6 @@ function createOfferJSON(data) {
 }
 
 module.exports = {
-  createTaskName,
+  // createTaskName,
   createOfferJSON,
 };
